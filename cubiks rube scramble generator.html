@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+ <meta charset="UTF-8">
+ <title>rand100.html</title>
+ <style type = "text/css">
+ fieldset {
+  width: 600px;
+  margin-right: auto;
+  margin-left: auto;
+ }
+ label {
+  float: left;
+  width: 250px;
+  text-align: right;
+  margin-right: 1em;
+  clear: left;
+ }
+ span {
+  float: left;
+ }
+ button {
+  display: block;
+  clear: both;
+  margin: auto;
+ }
+ </style>
+ <script type = "text/javascript">
+ function roll(){
+  //create variables for form elements
+  var spnRaw = document.getElementById("spnRaw");
+  var spn100 = document.getElementById("spn100");
+  var spnFinal = document.getElementById("spnFinal");
+  var spnllist = document.getElementById("spnllist");
+  var moves = ["0","R","U","F","B","L","D","u","r","b","f","d","l","R'","U'","F'","B'","L'","D'","u'","r'","b'","f'","d'","l'","R2","U2","F2","B2","L2","D2","u2","r2","b2","f2","d2","l2","M","E","S","x","y","z","M'","E'","S'","x'","y'","z'","M2","E2","S2","x2","y2","z2"]
+   var llist = []
+  function conv_to_move() {
+	  return moves[finalnum]
+	  llist.push(move[finalnum])
+	  spnllist.innerHTML = llist;
+  }
+  
+  
+  //for (var i=0;i<cars.length;i++)
+//{
+//document.write(cars[i] + "<br>");
+//}
+  //get random number
+  var raw = Math.random();
+  spnRaw.innerHTML = raw;
+ 
+  //multiply by 100
+  var times100 = raw * 54;
+  spn100.innerHTML = times100;
+ 
+  //get the ceiling
+  var finalnum = Math.ceil(times100);
+	  final = conv_to_move()
+ spnFinal.innerHTML = final;
+ } // end roll
+ </script>
+</head>
+<body>
+ <h1>3x3 scrambler</h1>
+ <form>
+  <fieldset>
+   <span id = "spnRaw">0</span>
+   <span id = "spn100">0</span>
+   <label>move:</label>
+   <span id = "spnFinal">0</span>
+   <button type = "button"
+     onclick = "roll()">
+    next move
+   </button>
+  </fieldset>
+ </form>
+</body>
+</html>
